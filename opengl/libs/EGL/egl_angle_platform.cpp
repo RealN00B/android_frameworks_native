@@ -156,6 +156,7 @@ bool initializeAnglePlatform(EGLDisplay dpy) {
     if (!((angleGetDisplayPlatform)(dpy, g_PlatformMethodNames, g_NumPlatformMethods, nullptr,
                                     &platformMethods))) {
         ALOGE("ANGLEGetDisplayPlatform call failed!");
+        dlclose(so);
         return false;
     }
     if (platformMethods) {
